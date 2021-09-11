@@ -1890,7 +1890,7 @@ ipt_nat_rules(char *man_if, char *man_ip,
 			if (nvram_invmatch("sshd_enable", "0") && nvram_match("sshd_wopen", "1")) {
 				wport = nvram_get_int("sshd_wport");
 				lport = nvram_get_int("sshd_lport");
-				if (wport < 22 || wport > 65535) {
+				if (wport < 22 || wport > 65535 || wport == lport) {
 					wport = 10022;
 					nvram_set_int("sshd_wport", wport);
 				}

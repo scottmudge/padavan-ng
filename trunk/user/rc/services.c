@@ -211,11 +211,20 @@ void
 start_sshd(void)
 {
 	int sshd_port;
+	int sshd_wanport;
 	int sshd_mode = nvram_get_int("sshd_enable");
 
 	sshd_port = nvram_get_int("sshd_lport");
+	sshd_wanport = nvram_get_int("sshd_wport");
 	if (sshd_port < 22 || sshd_port > 65535) {
 		sshd_port = 22;
+		nvram_set_int("sshd_lport", sshd_port);
+	}
+
+	if (sshd_port == sshd_wanport) {
+		sshd_wanport = 10022;
+		sshd_port = 22;
+		nvram_set_int("sshd_wport", sshd_wanport);
 		nvram_set_int("sshd_lport", sshd_port);
 	}
 
@@ -228,15 +237,10 @@ start_sshd(void)
 void
 restart_sshd(void)
 {
-	int is_run_before = is_sshd_run();
-	int is_run_after;
-
 	stop_sshd();
 	start_sshd();
 
-	is_run_after = is_sshd_run();
-
-	if ((is_run_after != is_run_before) && nvram_match("sshd_wopen", "1") && nvram_match("fw_enable_x", "1"))
+	if (nvram_match("sshd_wopen", "1") && nvram_match("fw_enable_x", "1"))
 		restart_firewall();
 }
 #endif
