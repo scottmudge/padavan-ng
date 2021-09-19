@@ -1,7 +1,7 @@
 # Rules.mak for uClibc-ng
 #
 # Copyright (C) 2000-2008 Erik Andersen <andersen@uclibc.org>
-# Copyright (C) 2015-2018 Waldemar Brodkorb <wbx@uclibc-ng.org>
+# Copyright (C) 2015-2021 Waldemar Brodkorb <wbx@uclibc-ng.org>
 #
 # Licensed under the LGPL v2.1, see the file COPYING.LIB in this tarball.
 #
@@ -128,7 +128,7 @@ export RUNTIME_PREFIX DEVEL_PREFIX KERNEL_HEADERS MULTILIB_DIR
 # Now config hard core
 MAJOR_VERSION := 1
 MINOR_VERSION := 0
-SUBLEVEL      := 34
+SUBLEVEL      := 38
 EXTRAVERSION  :=
 VERSION       := $(MAJOR_VERSION).$(MINOR_VERSION).$(SUBLEVEL)
 ABI_VERSION   := $(MAJOR_VERSION)
@@ -144,7 +144,7 @@ SHARED_LIBNAME := $(LIBC).so.$(ABI_VERSION)
 
 UCLIBC_LDSO_NAME := ld-uClibc
 ARCH_NATIVE_BIT := 32
-ifneq ($(findstring  $(TARGET_ARCH) , hppa64 ia64 powerpc64 s390x sparc64 x86_64 ),)
+ifneq ($(findstring  $(TARGET_ARCH) , hppa64 ia64 powerpc64 s390x sparc64 x86_64 kvx ),)
 UCLIBC_LDSO_NAME := ld64-uClibc
 ARCH_NATIVE_BIT := 64
 else
@@ -288,7 +288,7 @@ OPTIMIZATION += $(CFLAG_-fstrict-aliasing)
 
 # Why -funsigned-char: I hunted a bug related to incorrect
 # sign extension of 'char' type for 10 hours straight. Not fun.
-CPU_CFLAGS-y := -funsigned-char -fno-builtin
+CPU_CFLAGS-y := -funsigned-char -fno-builtin -fcommon
 
 $(eval $(call check-gcc-var,-fno-asm))
 CPU_CFLAGS-y += $(CFLAG_-fno-asm)
@@ -463,6 +463,10 @@ ifeq ($(TARGET_ARCH),csky)
 
 	CPU_CFLAGS-$(ARCH_LITTLE_ENDIAN)	+= -mlittle-endian
 	CPU_CFLAGS-$(ARCH_BIG_ENDIAN)		+= -mbig-endian
+endif
+
+ifeq ($(TARGET_ARCH),kvx)
+	CPU_CFLAGS-$(CONFIG_KVX) += -march=kvx
 endif
 
 ifeq ($(TARGET_ARCH),m68k)
