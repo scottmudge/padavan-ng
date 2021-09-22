@@ -1,4 +1,4 @@
-SRC_NAME=nfs-utils-1.2.8
+SRC_NAME=nfs-utils-2.5.3
 
 CFLAGS +=$(COPT) -ffunction-sections -fdata-sections -fvisibility=hidden
 LDFLAGS += -Wl,--gc-sections
@@ -21,7 +21,6 @@ configure:
 		--prefix=/ \
 		--disable-ipv6 \
 		--disable-mount \
-		--disable-libmount \
 		--disable-mountconfig \
 		--disable-nfsdcltrack \
 		--disable-nfsv4 \
@@ -38,7 +37,7 @@ configure:
 	)
 
 clean:
-	if [ -f $(SRC_NAME1)/Makefile ] ; then \
+	if [ -f $(SRC_NAME)/Makefile ] ; then \
 		$(MAKE) -C $(SRC_NAME) distclean ; \
 	fi; \
 	rm -f config_done
