@@ -1,4 +1,4 @@
-SRC_NAME=radvd-2.18-rc1
+SRC_NAME=radvd-2.19
 
 SHAREDIR = $(ROOTDIR)/user/shared
 
