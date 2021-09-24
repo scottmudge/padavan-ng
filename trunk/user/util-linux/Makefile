@@ -1,4 +1,4 @@
-SRC_NAME=util-linux-2.34
+SRC_NAME=util-linux-2.35
 
 THISDIR = $(shell pwd)
 
