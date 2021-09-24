@@ -1,4 +1,4 @@
-SRC_NAME=curl-7.6X.X
+SRC_NAME=curl-7.7X.X
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
@@ -73,7 +73,42 @@ configure:
 
 clean:
 	if [ -f $(SRC_NAME)/Makefile ] ; then \
-		$(MAKE) -C $(SRC_NAME) distclean ; \
+		$(MAKE) -C $(SRC_NAME) clean ; \
+		rm -r -f $(SRC_NAME)/lib/.deps ; \
+		rm -r -f $(SRC_NAME)/src/.deps ; \
+		rm -r -f $(SRC_NAME)/lib/vauth/.deps ; \
+		rm -r -f $(SRC_NAME)/lib/vquic/.deps ; \
+		rm -r -f $(SRC_NAME)/lib/vssh/.deps ; \
+		rm -r -f $(SRC_NAME)/lib/vtls/.deps ; \
+		rm -r -f $(SRC_NAME)/docs/examples/.deps ; \
+		rm -r -f $(SRC_NAME)/tests/libtest/.deps ; \
+		rm -r -f $(SRC_NAME)/tests/server/.deps ; \
+		rm -r -f $(SRC_NAME)/tests/unit/.deps ; \
+		rm -f $(SRC_NAME)/lib/Makefile ; \
+		rm -f $(SRC_NAME)/lib/.dirstamp ; \
+		rm -f $(SRC_NAME)/src/Makefile ; \
+		rm -f $(SRC_NAME)/scripts/Makefile ; \
+		rm -f $(SRC_NAME)/tests/Makefile ; \
+		rm -f $(SRC_NAME)/tests/certs/scripts/Makefile ; \
+		rm -f $(SRC_NAME)/tests/data/Makefile ; \
+		rm -f $(SRC_NAME)/tests/libtest/Makefile ; \
+		rm -f $(SRC_NAME)/tests/server/Makefile ; \
+		rm -f $(SRC_NAME)/tests/unit/Makefile ; \
+		rm -f $(SRC_NAME)/Makefile ; \
+		rm -f $(SRC_NAME)/docs/cmdline-opts/Makefile ; \
+		rm -f $(SRC_NAME)/docs/examples/Makefile ; \
+		rm -f $(SRC_NAME)/docs/libcurl/Makefile ; \
+		rm -f $(SRC_NAME)/docs/libcurl/opts/Makefile ; \
+		rm -f $(SRC_NAME)/include/Makefile ; \
+		rm -f $(SRC_NAME)/include/curl/Makefile ; \
+		rm -f $(SRC_NAME)/packages/vms/Makefile ; \
+		rm -f $(SRC_NAME)/packages/Makefile ; \
+		rm -f $(SRC_NAME)/config.status ; \
+		rm -f $(SRC_NAME)/config.cache ; \
+		rm -f $(SRC_NAME)/config.log ; \
+		rm -f $(SRC_NAME)/curl-config ; \
+		rm -f $(SRC_NAME)/libcurl.pc ; \
+		rm -f $(SRC_NAME)/libtool ; \
 	fi ; \
 	rm -f config_done
 
