@@ -7,6 +7,9 @@
 # This is free software.  You may distribute it under
 # the terms of the GNU General Public License,
 # version 2, or at your option any later version.
+
+include Makefile.ver
+
 #
 # Note on debugging flags:
 # -DDEBUG_ZLB shows all ZLB exchange traffic
