@@ -1,4 +1,4 @@
-SRC_NAME=iptables-1.6.2
+SRC_NAME=iptables-1.8.7
 
 CFLAGS  += -ffunction-sections -fdata-sections
 LDFLAGS += -Wl,--gc-sections
@@ -83,12 +83,12 @@ clean:
 
 romfs:
 	mkdir -p $(ROMFSDIR)/usr/lib/xtables
-	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/iptables/xtables-multi /bin/xtables-multi
-	$(ROMFSINST) -s xtables-multi /bin/iptables
-	$(ROMFSINST) -s xtables-multi /bin/iptables-restore
-	$(ROMFSINST) -s xtables-multi /bin/iptables-save
+	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/iptables/xtables-legacy-multi /bin/xtables-legacy-multi
+	$(ROMFSINST) -s xtables-legacy-multi /bin/iptables
+	$(ROMFSINST) -s xtables-legacy-multi /bin/iptables-restore
+	$(ROMFSINST) -s xtables-legacy-multi /bin/iptables-save
 ifdef CONFIG_IPV6
-	$(ROMFSINST) -s xtables-multi /bin/ip6tables
-	$(ROMFSINST) -s xtables-multi /bin/ip6tables-restore
-	$(ROMFSINST) -s xtables-multi /bin/ip6tables-save
+	$(ROMFSINST) -s xtables-legacy-multi /bin/ip6tables
+	$(ROMFSINST) -s xtables-legacy-multi /bin/ip6tables-restore
+	$(ROMFSINST) -s xtables-legacy-multi /bin/ip6tables-save
 endif
