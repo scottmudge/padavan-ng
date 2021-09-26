@@ -1,3 +1,81 @@
+2021-01-04 18:40:01 +0100  Pali Rohár <pali.rohar@gmail.com>
+
+	* Release version 0.3
+
+2020-09-05 13:52:50 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Remove duplicate code in mcgroup.c file
+
+	  Existing functionality is provided by k_join and k_leave functions.
+
+2020-09-05 13:07:38 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Fix initialization and deinitialization of mrouter socket
+
+	  Ensure that uninitialized socket is invalid (-1) and not stdin (0).
+
+2020-09-05 13:07:00 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Use main mrouter socket also for sending join/leave messages to upstream router
+
+	  There is no need to open additional UDP socket which is used just for calling
+	  IP_ADD_MEMBERSHIP/IP_DROP_MEMBERSHIP setsockopt. Main mrouter socket is can
+	  be used for these operations too.
+
+2020-05-20 09:59:11 +0200  Uglymotha <uglymotha@wizdom.nu>
+
+	* Free BSD Compilation Patch
+
+	  On FreeBSD compilation failed due to missing includes in os-freebsd.h.
+	  This was causing errors about undefined structs and types in missing includes.
+	  Also defines __BSD_VISIBLE due to FreeBSD not providing u_int, u_long etc
+	  in a default _POSIX_C_SOURCE environment.
+
+	  Fixes: https://github.com/pali/igmpproxy/issues/68
+
+2020-05-08 22:54:06 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Remove MAX_MC_VIFS macro
+
+	  Its value is same as MAXVIFS, so use MAXVIFS instead.
+
+2020-03-06 11:51:21 +0100  Pali Rohár <pali.rohar@gmail.com>
+
+	* Improve downstream host tracking for quickleave mode
+
+	  Use bit based per multicast route hash table for tracking downstream hosts.
+	  For hasing function is used 32bit MurmurHash3 with pseudorandom seed and
+	  size of hash table can be configured via a new "hashtablesize" token in
+	  config file. Default size of hash table is 32 bytes, so it can store
+	  approximatelly 128 hosts which is half of /24 subnet. For home networks
+	  this should be sane default value.
+
+	  Fixes: https://github.com/pali/igmpproxy/pull/57
+
+2020-02-26 20:27:08 +0100  Pali Rohár <pali.rohar@gmail.com>
+
+	* Show error message when IP_ADD_MEMBERSHIP fails with errno ENOBUFS
+
+	  Also on Linux show hint how to increase maximum number of multicast groups.
+
+	  Fixes: https://github.com/pali/igmpproxy/issues/30
+
+2020-02-25 23:46:57 +0100  Pali Rohár <pali.rohar@gmail.com>
+
+	* Fix gcc-7 and clang-9 on Travis
+
+2020-02-25 23:24:26 +0100  Pali Rohár <pali.rohar@gmail.com>
+
+	* Update Travis config file
+
+2019-06-26 17:42:15 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Use AS_IF macro for C99 check in configure.ac
+
+2018-09-30 00:28:05 +0200  Pali Rohár <pali.rohar@gmail.com>
+
+	* Fix makefile rules for generating AUTHORS and ChangeLog files
+
 2018-02-13 20:17:30 +0100  Pali Rohár <pali.rohar@gmail.com>
 
 	* Release version 0.2.1
