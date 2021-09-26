@@ -62,7 +62,8 @@ on_ac_power() {
 	return 0
 }
 
+test -e @root_sbindir@/e2scrub_all || exit 0
 test -e /run/systemd/system && exit 0
 on_ac_power || exit 0
 
-exec @root_sbindir@/e2scrub_all -C
+exec @root_sbindir@/e2scrub_all

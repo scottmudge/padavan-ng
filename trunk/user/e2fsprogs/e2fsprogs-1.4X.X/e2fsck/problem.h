@@ -565,7 +565,6 @@ struct problem_context {
 #define PR_1_EXTENTS_SET			0x01005A
 
 /* inode is in extents format, but superblock is missing EXTENTS feature */
-/* inode has extents, superblock missing INCOMPAT_EXTENTS feature */
 #define PR_1_EXTENT_FEATURE			0x01005B
 
 /* inode missing EXTENTS_FL, but is an extent inode */
@@ -668,8 +667,8 @@ struct problem_context {
 /* Inode leaf has a duplicate extent mapping */
 #define PR_1_EXTENT_COLLISION			0x01007D
 
-/* Error allocating memory for encrypted directory list */
-#define PR_1_ALLOCATE_ENCRYPTED_DIRLIST		0x01007E
+/* Error allocating memory for encrypted inode list */
+#define PR_1_ALLOCATE_ENCRYPTED_INODE_LIST	0x01007E
 
 /* Inode extent tree could be more shallow */
 #define PR_1_EXTENT_BAD_MAX_DEPTH		0x01007F
@@ -692,6 +691,30 @@ struct problem_context {
 
 /* EA inode for parent inode does not have EXT4_EA_INODE_FL flag */
 #define PR_1_ATTR_SET_EA_INODE_FL		0x010086
+
+/* Offer to clear uninitialized flag on an extent */
+#define PR_1_CLEAR_UNINIT_EXTENT		0x010087
+
+/* Casefold flag set on a non-directory */
+#define PR_1_CASEFOLD_NONDIR			0x010088
+
+/* Casefold flag set, but file system is missing the casefold feature */
+#define PR_1_CASEFOLD_FEATURE			0x010089
+
+/* Inode has encrypt flag but no encryption extended attribute */
+#define PR_1_MISSING_ENCRYPTION_XATTR		0x01008A
+
+/* Encrypted inode has corrupt encryption extended attribute */
+#define PR_1_CORRUPT_ENCRYPTION_XATTR		0x01008B
+
+/* Error allocating memory for casefolded directory list */
+#define PR_1_ALLOCATE_CASEFOLDED_DIRLIST	0x01008C
+
+/* Htree directory should use SipHash but does not */
+#define PR_1_HTREE_NEEDS_SIPHASH		0x01008D
+
+/* Htree directory uses SipHash but should not */
+#define PR_1_HTREE_CANNOT_SIPHASH		0x01008E
 
 
 /*
@@ -940,8 +963,8 @@ struct problem_context {
 /* Clear invalid HTREE directory */
 #define PR_2_HTREE_CLEAR	0x020038
 
-/* Clear the htree flag forcibly */
-/* #define PR_2_HTREE_FCLR	0x020039 */
+/* Filesystem has large directories, but has no such flag in superblock */
+#define PR_2_FEATURE_LARGE_DIRS	0x020039
 
 /* Bad block in htree interior node */
 #define PR_2_HTREE_BADBLK	0x02003A
@@ -1008,6 +1031,18 @@ struct problem_context {
 
 /* Encrypted directory entry is too short */
 #define PR_2_BAD_ENCRYPTED_NAME		0x020050
+
+/* Encrypted directory contains unencrypted file */
+#define PR_2_UNENCRYPTED_FILE		0x020051
+
+/* Encrypted directory contains file with different encryption policy */
+#define PR_2_INCONSISTENT_ENCRYPTION_POLICY	0x020052
+
+/* Encoded directory entry has illegal characters in its name */
+#define PR_2_BAD_ENCODED_NAME		0x020053
+
+/* Non-unique filename found, but can't rename */
+#define PR_2_NON_UNIQUE_FILE_NO_RENAME	0x020054
 
 /*
  * Pass 3 errors
@@ -1144,6 +1179,9 @@ struct problem_context {
 
 /* directory exceeds max links, but no DIR_NLINK feature in superblock */
 #define PR_4_DIR_NLINK_FEATURE		0x040006
+
+/* Directory ref count set to overflow but it doesn't have to be */
+#define PR_4_DIR_OVERFLOW_REF_COUNT	0x040007
 
 /*
  * Pass 5 errors
