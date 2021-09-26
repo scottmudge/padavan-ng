@@ -1,4 +1,4 @@
-SRC_NAME="inadyn-2.5"
+SRC_NAME="inadyn-2.8.1"
 
 SHAREDIR = $(ROOTDIR)/user/shared
 CFLAGS += -Os -ffunction-sections -fdata-sections -I.

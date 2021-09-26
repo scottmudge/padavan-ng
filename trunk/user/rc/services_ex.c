@@ -867,7 +867,7 @@ static const struct inadyn_system_t {
 } inadyn_systems[] = {
 	{ "WWW.ASUS.COM",         "update@asus.com"            },
 	{ "WWW.DYNDNS.ORG",       "default@dyndns.org"         },
-	{ "WWW.TZO.COM",          "default@tzo.com"            },
+	{ "WWW.CLOUDFLARE.COM",   "default@cloudflare.com"     },
 	{ "WWW.ZONEEDIT.COM",     "default@zoneedit.com"       },
 	{ "WWW.EASYDNS.COM",      "default@easydns.com"        },
 	{ "WWW.NO-IP.COM",        "default@no-ip.com"          },
@@ -875,10 +875,8 @@ static const struct inadyn_system_t {
 	{ "WWW.DNSEXIT.COM",      "default@dnsexit.com"        },
 	{ "WWW.CHANGEIP.COM",     "default@changeip.com"       },
 	{ "WWW.SITELUTIONS.COM",  "default@sitelutions.com"    },
-	{ "WWW.ZERIGO.COM",       "default@zerigo.com"         },
 	{ "WWW.DHIS.ORG",         "default@dhis.org"           },
 	{ "WWW.DUCKDNS.ORG",      "default@duckdns.org"        },
-	{ "WWW.DTDNS.COM",        "default@dtdns.com"          },
 	{ "WWW.OVH.COM",          "default@ovh.com"            },
 	{ "WWW.LOOPIA.COM",       "default@loopia.com"         },
 	{ "WWW.DUIADNS.NET",      "default@duiadns.net"        },
@@ -887,6 +885,8 @@ static const struct inadyn_system_t {
 	{ "WWW.DYNU.COM",         "default@dynu.com"           },
 	{ "WWW.CLOUDXNS.NET",     "default@cloudxns.net"       },
 	{ "WWW.DNSPOD.CN",        "default@dnspod.cn"          },
+	{ "WWW.PUBYUN.COM",       "dyndns@3322.org"            },
+	{ "WWW.YANDEX.RU",        "default@pdd.yandex.ru"      },
 	{ "FREEMYIP.COM",         "default@freemyip.com"       },
 	{ "SPDYN.DE",             "default@spdyn.de"           },
 	{ "DNS.HE.NET",           "dyndns@he.net"              },
@@ -906,7 +906,6 @@ inadyn_checkip_url[] = {
 	"",
 	"checkip.dyndns.org /",
 	"checkip.dyndns.org:8245 /",
-	"echo.tzo.com /",
 	"ip.dnsexit.com /",
 	"ip.changeip.com /",
 	"myip.dnsomatic.com /",
@@ -916,7 +915,9 @@ inadyn_checkip_url[] = {
 	"checkip.two-dns.de /",
 	"ipv4.wtfismyip.com /text",
 	"ipv4.nsupdate.info /myip",
-	"myip.dtdns.com /",
+	"ip.3322.net /",
+	"pddimp.yandex.ru:443 /dynamic/update.php",
+	"1.1.1.1 /cdn-cgi/trace",
 };
 
 static const char *
