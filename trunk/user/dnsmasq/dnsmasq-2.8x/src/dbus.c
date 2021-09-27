@@ -1,4 +1,4 @@
-/* dnsmasq is Copyright (c) 2000-2018 Simon Kelley
+/* dnsmasq is Copyright (c) 2000-2021 Simon Kelley
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -185,9 +185,6 @@ static void dbus_read_servers(DBusMessage *message)
 		}
 	    }
 
-#ifndef HAVE_IPV6
-	  my_syslog(LOG_WARNING, _("attempt to set an IPv6 server address via DBus - no IPv6 support"));
-#else
 	  if (i == sizeof(struct in6_addr))
 	    {
 	      memcpy(&addr.in6.sin6_addr, p, sizeof(struct in6_addr));
@@ -202,7 +199,6 @@ static void dbus_read_servers(DBusMessage *message)
               source_addr.in6.sin6_port = htons(daemon->query_port);
 	      skip = 0;
 	    }
-#endif
 	}
       else
 	/* At the end */
@@ -219,7 +215,7 @@ static void dbus_read_servers(DBusMessage *message)
 	  domain = NULL;
 	
 	if (!skip)
-	  add_update_server(SERV_FROM_DBUS, &addr, &source_addr, NULL, domain);
+	  add_update_server(SERV_FROM_DBUS, &addr, &source_addr, NULL, domain, NULL);
      
       } while (dbus_message_iter_get_arg_type(&iter) == DBUS_TYPE_STRING); 
     }
@@ -241,7 +237,7 @@ static DBusMessage *dbus_reply_server_loop(DBusMessage *message)
   for (serv = daemon->servers; serv; serv = serv->next)
     if (serv->flags & SERV_LOOP)
       {
-	prettyprint_addr(&serv->addr, daemon->addrbuff);
+	(void)prettyprint_addr(&serv->addr, daemon->addrbuff);
 	dbus_message_iter_append_basic (&args_iter, DBUS_TYPE_STRING, &daemon->addrbuff);
       }
   
@@ -280,7 +276,7 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
     {
       const char *str = NULL;
       union  mysockaddr addr, source_addr;
-      int flags = 0;
+      u16 flags = 0;
       char interface[IF_NAMESIZE];
       char *str_addr, *str_domain = NULL;
 
@@ -365,10 +361,6 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
 	  strcpy(str_addr, str);
 	}
 
-      memset(&addr, 0, sizeof(addr));
-      memset(&source_addr, 0, sizeof(source_addr));
-      memset(&interface, 0, sizeof(interface));
-
       /* parse the IP address */
       if ((addr_err = parse_server(str_addr, &addr, &source_addr, (char *) &interface, &flags)))
 	{
@@ -381,7 +373,7 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
       /* 0.0.0.0 for server address == NULL, for Dbus */
       if (addr.in.sin_family == AF_INET &&
           addr.in.sin_addr.s_addr == 0)
-        flags |= SERV_NO_ADDR;
+        flags |= SERV_LITERAL_ADDRESS;
       
       if (strings)
 	{
@@ -396,7 +388,7 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
 	    else 
 	      p = NULL;
 	    
-	    add_update_server(flags | SERV_FROM_DBUS, &addr, &source_addr, interface, str_domain);
+	    add_update_server(flags | SERV_FROM_DBUS, &addr, &source_addr, interface, str_domain, NULL);
 	  } while ((str_domain = p));
 	}
       else
@@ -411,7 +403,7 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
 	      dbus_message_iter_get_basic(&string_iter, &str);
 	    dbus_message_iter_next (&string_iter);
 	    
-	    add_update_server(flags | SERV_FROM_DBUS, &addr, &source_addr, interface, str);
+	    add_update_server(flags | SERV_FROM_DBUS, &addr, &source_addr, interface, str, NULL);
 	  } while (dbus_message_iter_get_arg_type(&string_iter) == DBUS_TYPE_STRING);
 	}
 	 
@@ -420,7 +412,7 @@ static DBusMessage* dbus_read_servers_ex(DBusMessage *message, int strings)
     }
 
   cleanup_servers();
-
+    
   if (dup)
     free(dup);
 
@@ -460,7 +452,7 @@ static DBusMessage *dbus_add_lease(DBusMessage* message)
   int clid_len, hostname_len, hw_len, hw_type;
   dbus_uint32_t expires, ia_id;
   dbus_bool_t is_temporary;
-  struct all_addr addr;
+  union all_addr addr;
   time_t now = dnsmasq_time();
   unsigned char dhcp_chaddr[DHCP_CHADDR_MAX];
 
@@ -530,20 +522,20 @@ static DBusMessage *dbus_add_lease(DBusMessage* message)
 
   dbus_message_iter_get_basic(&iter, &is_temporary);
 
-  if (inet_pton(AF_INET, ipaddr, &addr.addr.addr4))
+  if (inet_pton(AF_INET, ipaddr, &addr.addr4))
     {
       if (ia_id != 0 || is_temporary)
 	return dbus_message_new_error(message, DBUS_ERROR_INVALID_ARGS,
 				      "ia_id and is_temporary must be zero for IPv4 lease");
       
-      if (!(lease = lease_find_by_addr(addr.addr.addr4)))
-    	lease = lease4_allocate(addr.addr.addr4);
+      if (!(lease = lease_find_by_addr(addr.addr4)))
+    	lease = lease4_allocate(addr.addr4);
     }
 #ifdef HAVE_DHCP6
-  else if (inet_pton(AF_INET6, ipaddr, &addr.addr.addr6))
+  else if (inet_pton(AF_INET6, ipaddr, &addr.addr6))
     {
-      if (!(lease = lease6_find_by_addr(&addr.addr.addr6, 128, 0)))
-	lease = lease6_allocate(&addr.addr.addr6,
+      if (!(lease = lease6_find_by_addr(&addr.addr6, 128, 0)))
+	lease = lease6_allocate(&addr.addr6,
 				is_temporary ? LEASE_TA : LEASE_NA);
       lease_set_iaid(lease, ia_id);
     }
@@ -574,7 +566,7 @@ static DBusMessage *dbus_del_lease(DBusMessage* message)
   DBusMessageIter iter;
   const char *ipaddr;
   DBusMessage *reply;
-  struct all_addr addr;
+  union all_addr addr;
   dbus_bool_t ret = 1;
   time_t now = dnsmasq_time();
 
@@ -588,11 +580,11 @@ static DBusMessage *dbus_del_lease(DBusMessage* message)
    
   dbus_message_iter_get_basic(&iter, &ipaddr);
 
-  if (inet_pton(AF_INET, ipaddr, &addr.addr.addr4))
-    lease = lease_find_by_addr(addr.addr.addr4);
+  if (inet_pton(AF_INET, ipaddr, &addr.addr4))
+    lease = lease_find_by_addr(addr.addr4);
 #ifdef HAVE_DHCP6
-  else if (inet_pton(AF_INET6, ipaddr, &addr.addr.addr6))
-    lease = lease6_find_by_addr(&addr.addr.addr6, 128, 0);
+  else if (inet_pton(AF_INET6, ipaddr, &addr.addr6))
+    lease = lease6_find_by_addr(&addr.addr6, 128, 0);
 #endif
   else
     return dbus_message_new_error_printf(message, DBUS_ERROR_INVALID_ARGS,
@@ -719,7 +711,7 @@ DBusHandlerResult message_handler(DBusConnection *connection,
   if (new_servers)
     {
       my_syslog(LOG_INFO, _("setting upstream servers from DBus"));
-      check_servers();
+      check_servers(0);
       if (option_bool(OPT_RELOAD))
 	clear_cache = 1;
     }
