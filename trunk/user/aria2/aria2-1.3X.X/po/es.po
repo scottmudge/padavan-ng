@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aria2\n"
 "Report-Msgid-Bugs-To: https://aria2.github.io/\n"
-"POT-Creation-Date: 2018-05-15 21:34+0900\n"
-"PO-Revision-Date: 2016-02-07 22:20+0000\n"
-"Last-Translator: Juanmabs22 <Juanmabs22@hotmail.com>\n"
+"POT-Creation-Date: 2021-08-21 17:31+0900\n"
+"PO-Revision-Date: 2019-11-16 22:57+0000\n"
+"Last-Translator: dario hereñu <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-05-15 12:12+0000\n"
-"X-Generator: Launchpad (build 18640)\n"
+"X-Launchpad-Export-Date: 2021-08-21 07:32+0000\n"
+"X-Generator: Launchpad (build 25edfd4b3e79d9ee9d9c3a750eb93e4d41d56c9e)\n"
 
 #: src/DownloadEngine.cc:255
 msgid ""
@@ -54,12 +54,12 @@ msgstr "No se pudo sereliar la sesión a '%s'."
 #: src/RequestGroupMan.cc:374
 #, c-format
 msgid "Download GID#%s paused"
-msgstr ""
+msgstr "Descarga GID#%s pausada"
 
 #: src/RequestGroupMan.cc:425
 #, c-format
 msgid "Download GID#%s not complete: %s"
-msgstr ""
+msgstr "Descarga GID#%s no completa: %s"
 
 #: src/RequestGroupMan.cc:704
 msgid "Download Results:"
@@ -111,6 +111,10 @@ msgid ""
 "option\n"
 "                              will be ignored."
 msgstr ""
+" -o, --out=FICHERO El nombre del fichero descargado. Es\n"
+"                              siempre relativo al directorio dado con la\n"
+"                              opción -d. Si utliza -z, esta opción no será\n"
+"                              necesaria."
 
 #: src/usage_text.h:46
 msgid ""
@@ -1911,7 +1915,7 @@ msgid ""
 " --gid=GID                    Set GID manually. aria2 identifies each\n"
 "                              download by the ID called GID. The GID must "
 "be\n"
-"                              hex string of 16 characters, thus [0-9a-zA-Z]\n"
+"                              hex string of 16 characters, thus [0-9a-fA-F]\n"
 "                              are allowed and leading zeros must not be\n"
 "                              stripped. The GID all 0 is reserved and must\n"
 "                              not be used. The GID must be unique, "
@@ -2165,7 +2169,7 @@ msgstr ""
 
 #: src/version_usage.cc:78
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: src/version_usage.cc:80
 #, c-format
@@ -2353,13 +2357,13 @@ msgstr ""
 msgid "IPv%d BitTorrent: listening on TCP port %u"
 msgstr ""
 
-#: src/RequestGroup.cc:399
+#: src/RequestGroup.cc:400
 msgid ""
 "For BitTorrent Magnet URI, enabling DHT is strongly recommended. See --"
 "enable-dht option."
 msgstr ""
 
-#: src/RequestGroup.cc:694
+#: src/RequestGroup.cc:695
 #, c-format
 msgid "Removed control file for %s because it is requested by user."
 msgstr ""
@@ -2644,7 +2648,7 @@ msgstr ""
 #: src/message.h:169
 #, c-format
 msgid "ServerStat file %s saved successfully."
-msgstr ""
+msgstr "Archivo ServerStat %s  guardado de manera exitosa."
 
 #: src/message.h:170
 #, c-format
@@ -2654,12 +2658,12 @@ msgstr ""
 #: src/message.h:173
 #, c-format
 msgid "Failed to establish connection, cause: %s"
-msgstr ""
+msgstr "Falló en establecer una conexión, causa: %s"
 
 #: src/message.h:174
 #, c-format
 msgid "Network problem has occurred. cause:%s"
-msgstr ""
+msgstr "Un problema con la red ha ocurrido. causa: %s"
 
 #: src/message.h:176
 #, c-format
@@ -2735,12 +2739,12 @@ msgstr ""
 #: src/message.h:205
 #, c-format
 msgid "Saved metadata as %s."
-msgstr ""
+msgstr "Guardar metadatos como %s."
 
 #: src/message.h:206
 #, c-format
 msgid "Saving metadata as %s failed. Maybe file already exists."
-msgstr ""
+msgstr "Falló al guardar los metadatos como %s. Tal vez el archivo ya exista."
 
 #: src/message.h:208
 #, c-format

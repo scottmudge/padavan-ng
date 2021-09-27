@@ -8,48 +8,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aria2\n"
 "Report-Msgid-Bugs-To: https://aria2.github.io/\n"
-"POT-Creation-Date: 2018-05-15 21:34+0900\n"
-"PO-Revision-Date: 2018-04-15 10:36+0000\n"
-"Last-Translator: Tony Ren <aus.dem.Mars@gmail.com>\n"
+"POT-Creation-Date: 2021-08-21 17:31+0900\n"
+"PO-Revision-Date: 2021-07-23 10:54+0000\n"
+"Last-Translator: YangYulin <Unknown>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-05-15 12:12+0000\n"
-"X-Generator: Launchpad (build 18640)\n"
+"X-Launchpad-Export-Date: 2021-08-21 07:32+0000\n"
+"X-Generator: Launchpad (build 25edfd4b3e79d9ee9d9c3a750eb93e4d41d56c9e)\n"
 "X-Poedit-Bookmarks: 82,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: src/DownloadEngine.cc:255
 msgid ""
 "Shutdown sequence commencing... Press Ctrl-C again for emergency shutdown."
-msgstr "正在关闭程序...再次按 Ctrl-C 可强制关闭程序"
+msgstr "正在关闭程序…再次按 Ctrl-C 可强制关闭程序。"
 
 #: src/DownloadEngine.cc:265
 msgid "Emergency shutdown sequence commencing..."
-msgstr "正在紧急停止..."
+msgstr "正在紧急停止…"
 
 #: src/MultiUrlRequestInfo.cc:171
 msgid "aria2 will resume download if the transfer is restarted."
-msgstr "重新启动aria2，自动继续下载文件"
+msgstr "传输重启后 aria2 可继续该下载。"
 
 #: src/MultiUrlRequestInfo.cc:172
 msgid ""
 "If there are any errors, then see the log file. See '-l' option in help/man "
 "page for details."
-msgstr ""
-"如果发生任何错误，请参阅日志文件。要了解详细信息，请在 help/man 页面中参阅“-"
-"l”选项。"
+msgstr "如见任何错误，详查日志文件。详细信息见帮助或手册页面中的“-l”选项。"
 
 #: src/MultiUrlRequestInfo.cc:342
 #, c-format
 msgid "Serialized session to '%s' successfully."
-msgstr "已成功将当前会话序列化到“%s”。"
+msgstr "会话已成功序列化至 %s。"
 
 #: src/MultiUrlRequestInfo.cc:346
 #, c-format
 msgid "Failed to serialize session to '%s'."
-msgstr "序列化会话到“%s”失败。"
+msgstr "未能将会话序列化至 %s。"
 
 #: src/RequestGroupMan.cc:374
 #, c-format
@@ -71,36 +69,36 @@ msgstr "状态标识："
 
 #: src/RequestGroupMan.cc:755
 msgid "(OK):download completed."
-msgstr "(OK)：下载已完成。"
+msgstr "(OK): 下载完成。"
 
 #: src/RequestGroupMan.cc:758
 msgid "(ERR):error occurred."
-msgstr "(ERR)：发生错误。"
+msgstr "(ERR): 发生错误。"
 
 #: src/RequestGroupMan.cc:761
 msgid "(INPR):download in-progress."
-msgstr "(INPR)：正在下载。"
+msgstr "(INPR): 正在下载。"
 
 #: src/RequestGroupMan.cc:764
 msgid "(RM):download removed."
-msgstr "(RM)：下载已删除。"
+msgstr "(RM): 下载已删除。"
 
 #: src/OptionHandler.cc:38
 msgid "                              Default: "
-msgstr "                              默认： "
+msgstr "                              默认: "
 
 #: src/OptionHandler.cc:39
 msgid "                              Tags: "
-msgstr "                              标签： "
+msgstr "                              标签: "
 
 #: src/OptionHandler.cc:40
 msgid "                              Possible Values: "
-msgstr "                              可能的取值： "
+msgstr "                              可能的值: "
 
 #: src/usage_text.h:39
 msgid ""
 " -d, --dir=DIR                The directory to store the downloaded file."
-msgstr " -d, --dir=目录               用于存储已下载文件的目录。"
+msgstr " -d, --dir=DIR               存储已下载文件的目录。"
 
 #: src/usage_text.h:41
 msgid ""
@@ -110,16 +108,15 @@ msgid ""
 "option\n"
 "                              will be ignored."
 msgstr ""
-" -o, --out=FILE   文件保存名字。此文件将以此名字永久保存在 -d \n"
-"                              参数所指定的相对路径下。当 -Z 参数被启用时， \n"
-"                              此选项报废。"
+" -o, --out=FILE               已下载文件的文件名。始终是相对于 -d 选项提供的"
+"目录。使用 -Z 选项时，此选项被忽略。"
 
 #: src/usage_text.h:46
 msgid ""
 " -l, --log=LOG                The file name of the log file. If '-' is\n"
 "                              specified, log is written to stdout."
 msgstr ""
-" -l, --log=日志               日志文件名称。如果指定“-”，\n"
+" -l, --log=LOG               日志文件名称。如果指定“-”，\n"
 "                              日志将被写到标准输出。"
 
 #: src/usage_text.h:49
@@ -132,7 +129,7 @@ msgid ""
 "to\n"
 "                              \"/dev/null\"."
 msgstr ""
-" -D, --daemon[=true|false]    以守护进程运行。当前工作目录将设置为“/” ，\n"
+" -D, --daemon[=true|false]    运行为守护进程。当前工作目录将设置为“/” ，\n"
 "                              同时标准输出和标准错误信息将被重定向到“/dev/"
 "null”。"
 
@@ -156,7 +153,7 @@ msgstr ""
 " -s, --split=N                使用 N 个连接下载文件。如 N 小于需要下载的 URI "
 "数量，\n"
 "                              那么将使用所有连接，剩余的 URL 将作为候补。\n"
-"                              如 N 大于需要下载的 URI 数量，多余的 URL 将用于"
+"                              如 N 大于需要下载的 URI 数量，多余的连接将用于"
 "并行下载。\n"
 "                              到主机的连接数量受 --max-connection-per-server "
 "选项限制。\n"
@@ -169,13 +166,13 @@ msgid ""
 "the\n"
 "                              HTTP server returns 503 response."
 msgstr ""
-" --retry-wait=秒数           设定重试等待时间。秒数 > 0 时，如果 HTTP 返回 "
+" --retry-wait=秒数           设定重试间隔时间。秒数 > 0 时，如果 HTTP 返回 "
 "503 错误，\n"
-"                             aria2 会在 <秒数> 秒后重试下载。"
+"                             aria2 将在所指定的秒数后重试下载。"
 
 #: src/usage_text.h:68
 msgid " -t, --timeout=SEC            Set timeout in seconds."
-msgstr " -t, --timeout=秒数           设置超时（以秒计）。"
+msgstr " -t, --timeout=秒数           设置“超时”（秒）。"
 
 #: src/usage_text.h:70
 msgid " -m, --max-tries=N            Set number of tries. 0 means unlimited."
@@ -296,7 +293,7 @@ msgid ""
 "downloads."
 msgstr ""
 " --lowest-speed-limit=速度    如果下载速度低于或等于此值（字节/秒），\n"
-"                              则断开连接。0意味着aria2没有最低速度限制。\n"
+"                              则断开连接。0意味着 aria2 没有最低速度限制。\n"
 "                              可附加 K 或 M（1K=1024，1M=1024K）。\n"
 "                              此选项对 BitTorrent 下载无效。"
 
@@ -849,6 +846,7 @@ msgid ""
 " --peer-agent=PEER_AGENT  Set client reported during Extended torrent "
 "handshakes"
 msgstr ""
+" --peer-agent=PEER_AGENT  设置在扩展的 torrent 握手期间报告为哪款客户端"
 
 #: src/usage_text.h:337
 msgid " --enable-peer-exchange[=true|false] Enable Peer Exchange extension."
@@ -1399,6 +1397,9 @@ msgid ""
 "parameter,\n"
 "                              but not the extended version filename*."
 msgstr ""
+" --content-disposition-default-utf8[=true|false] 将 Content-Disposition 标头"
+"中带引号的字符串视作 UTF-8 而非  ISO-8859-1，例如一个文件名参数，而非扩展的文"
+"件名*."
 
 #: src/usage_text.h:548
 msgid " --event-poll=POLL            Specify the method for polling events."
@@ -2293,6 +2294,9 @@ msgid ""
 "shutdown\n"
 "                              itself."
 msgstr ""
+" --stop-with-process=PID 在进程 PID 未运行时停止应用程序。 如果 aria2 进程是"
+"从父进程派生出来的，这很有用。父进程可以用自己的 pid 派生 aria2，当父进程由于"
+"某种原因退出时，aria2 可以检测到它并自行关闭。"
 
 #: src/usage_text.h:931
 msgid ""
@@ -2318,10 +2322,13 @@ msgid ""
 "                              because it will actually remove files from\n"
 "                              your disk."
 msgstr ""
+" --bt-remove-unselected-file[=true|false] 当 BitTorrent 完成下载时移除未选中"
+"的文件。如要选择文件，请使用 --select-file 选项，如果没有使用，则认为选中了所"
+"有文件。由于此选项会将文件从硬盘上移除，请小心使用此选项。"
 
 #: src/usage_text.h:947
 msgid " --enable-mmap[=true|false]   Map files into memory."
-msgstr ""
+msgstr " --enable-mmap[=true|false] 将文件映射至内存。"
 
 #: src/usage_text.h:949
 msgid ""
@@ -2415,7 +2422,7 @@ msgid ""
 " --gid=GID                    Set GID manually. aria2 identifies each\n"
 "                              download by the ID called GID. The GID must "
 "be\n"
-"                              hex string of 16 characters, thus [0-9a-zA-Z]\n"
+"                              hex string of 16 characters, thus [0-9a-fA-F]\n"
 "                              are allowed and leading zeros must not be\n"
 "                              stripped. The GID all 0 is reserved and must\n"
 "                              not be used. The GID must be unique, "
@@ -2866,13 +2873,13 @@ msgstr "IPv%d RPC：正在监听 TCP 端口 %u"
 msgid "IPv%d BitTorrent: listening on TCP port %u"
 msgstr "IPv%d BitTorrent：正在监听 TCP 端口 %u"
 
-#: src/RequestGroup.cc:399
+#: src/RequestGroup.cc:400
 msgid ""
 "For BitTorrent Magnet URI, enabling DHT is strongly recommended. See --"
 "enable-dht option."
 msgstr "对于 BitTorrent Magnet URI，强烈推荐开启 DHT。参见 --enable-dht 选项。"
 
-#: src/RequestGroup.cc:694
+#: src/RequestGroup.cc:695
 #, c-format
 msgid "Removed control file for %s because it is requested by user."
 msgstr "根据用户请求，已删除 %s 的控制文件。"

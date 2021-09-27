@@ -10,16 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://aria2.github.io/\n"
-"POT-Creation-Date: 2018-05-15 21:34+0900\n"
-"PO-Revision-Date: 2018-01-17 14:06+0000\n"
+"POT-Creation-Date: 2021-08-21 17:31+0900\n"
+"PO-Revision-Date: 2018-10-14 18:06+0000\n"
 "Last-Translator: ITriskTI <Unknown>\n"
 "Language-Team: <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-05-15 12:12+0000\n"
-"X-Generator: Launchpad (build 18640)\n"
+"X-Launchpad-Export-Date: 2021-08-21 07:32+0000\n"
+"X-Generator: Launchpad (build 25edfd4b3e79d9ee9d9c3a750eb93e4d41d56c9e)\n"
 
 #: src/DownloadEngine.cc:255
 msgid ""
@@ -2989,11 +2989,12 @@ msgstr ""
 "= 1024K)."
 
 #: src/usage_text.h:1003
+#, fuzzy
 msgid ""
 " --gid=GID                    Set GID manually. aria2 identifies each\n"
 "                              download by the ID called GID. The GID must "
 "be\n"
-"                              hex string of 16 characters, thus [0-9a-zA-Z]\n"
+"                              hex string of 16 characters, thus [0-9a-fA-F]\n"
 "                              are allowed and leading zeros must not be\n"
 "                              stripped. The GID all 0 is reserved and must\n"
 "                              not be used. The GID must be unique, "
@@ -3010,7 +3011,7 @@ msgstr ""
 "                              каждую загрузку по ID, называемому GID. \n"
 "                              GID должен быть шестнадцатеричной строкой\n"
 "                              из 16 символов, таким образом разрешены\n"
-"                              [0-9a-zA-Z], а начальные нули не должны быть\n"
+"                              [0-9a-fA-F], а начальные нули не должны быть\n"
 "                              пропущены. GID равный 0 зарезервирован и не\n"
 "                              должен быть использован. GID должен быть\n"
 "                              уникальным, иначе отобразится сообщение об\n"
@@ -3630,7 +3631,7 @@ msgstr "IPv%d RPC: прослушивает TCP-порт %u"
 msgid "IPv%d BitTorrent: listening on TCP port %u"
 msgstr "IPv%d BitTorrent: прослушивает TCP-порт %u"
 
-#: src/RequestGroup.cc:399
+#: src/RequestGroup.cc:400
 msgid ""
 "For BitTorrent Magnet URI, enabling DHT is strongly recommended. See --"
 "enable-dht option."
@@ -3638,7 +3639,7 @@ msgstr ""
 "Для BitTorrent Magnet URI включение DHT строго рекомендуется. Смотрите "
 "параметр --enable-dht."
 
-#: src/RequestGroup.cc:694
+#: src/RequestGroup.cc:695
 #, c-format
 msgid "Removed control file for %s because it is requested by user."
 msgstr ""

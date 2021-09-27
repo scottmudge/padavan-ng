@@ -1,7 +1,7 @@
 /*
  * Wslay - The WebSocket Library
  *
- * Copyright (c) 2011, 2012 Tatsuhiro Tsujikawa
+ * Copyright (c) 2020 Tatsuhiro Tsujikawa
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,10 +22,18 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-#ifndef WSLAYVER_H
-#define WSLAYVER_H
+#ifndef WSLAY_MACRO_H
+#define WSLAY_MACRO_H
 
-/* Version number of wslay release */
-#define WSLAY_VERSION "1.0.1-DEV"
+#ifdef HAVE_CONFIG_H
+#  include "config.h"
+#endif /* HAVE_CONFIG_H */
 
-#endif /* WSLAYVER_H */
+#include <wslay/wslay.h>
+
+#include <stddef.h>
+
+#define wslay_struct_of(ptr, type, member)                                     \
+  ((type *)(void *)((char *)(ptr)-offsetof(type, member)))
+
+#endif /* WSLAY_MACRO_H */
