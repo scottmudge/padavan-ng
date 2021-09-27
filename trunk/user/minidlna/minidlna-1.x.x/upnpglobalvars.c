@@ -58,9 +58,9 @@
 time_t startup_time = 0;
 
 struct runtime_vars_s runtime_vars;
-uint32_t runtime_flags = INOTIFY_MASK | TIVO_BONJOUR_MASK;
+uint32_t runtime_flags = INOTIFY_MASK | TIVO_BONJOUR_MASK | SUBTITLES_MASK;
 
-const char *pidfilename = "/var/run/minidlna.pid";
+const char *pidfilename = "/var/run/minidlna/minidlna.pid";
 
 char uuidvalue[] = "uuid:00000000-0000-0000-0000-000000000000";
 char modelname[MODELNAME_MAX_LEN] = ROOTDEV_MODELNAME;
@@ -81,8 +81,8 @@ const char * minissdpdsocketpath = "/var/run/minissdpd.sock";
 /* UPnP-A/V [DLNA] */
 sqlite3 *db;
 char friendly_name[FRIENDLYNAME_MAX_LEN];
-char db_path[PATH_MAX] = {'\0'};
-char log_path[PATH_MAX] = {'\0'};
+char db_path[1024] = {'\0'};
+char log_path[1024] = {'\0'};
 struct media_dir_s * media_dirs = NULL;
 struct album_art_name_s * album_art_names = NULL;
 volatile short int quitting = 0;

@@ -57,7 +57,7 @@
 
 #include <sqlite3.h>
 
-#define MINIDLNA_VERSION "1.2.1"
+#define MINIDLNA_VERSION "1.3.0"
 
 #ifdef NETGEAR
 # define SERVER_NAME "ReadyDLNA"
@@ -67,6 +67,12 @@
 
 #define USE_FORK 1
 #define DB_VERSION 11
+
+#ifdef READYNAS
+# define LOGFILE_NAME "upnp-av.log"
+#else
+# define LOGFILE_NAME "minidlna.log"
+#endif
 
 #ifdef ENABLE_NLS
 #define _(string) gettext(string)
@@ -165,6 +171,7 @@
 	"http-get:*:audio/mp4:*," \
 	"http-get:*:audio/x-wav:*," \
 	"http-get:*:audio/x-flac:*," \
+	"http-get:*:audio/x-dsd:*," \
 	"http-get:*:application/ogg:*"
 
 #define DLNA_FLAG_DLNA_V1_5      0x00100000
@@ -190,20 +197,21 @@ extern uint32_t runtime_flags;
 #define WIDE_LINKS_MASK       0x0040
 #ifdef HAVE_AVAHI
 #define TIVO_BONJOUR_MASK     0x0080
-//#define UPDATE_SCAN_MASK      0x0400
 #else
 #define TIVO_BONJOUR_MASK     0x0000
-#define UPDATE_SCAN_MASK      0x0080
 #endif
 #define SCANNING_MASK         0x0100
 #define RESCAN_MASK           0x0200
+#define SUBTITLES_MASK        0x0400
+#define FORCE_ALPHASORT_MASK  0x0800
 
-#define SETFLAG(mask)	(runtime_flags |= mask)
+#define SETFLAG(mask)	runtime_flags |= mask
 #define GETFLAG(mask)	(runtime_flags & mask)
-#define CLEARFLAG(mask)	(runtime_flags &= ~mask)
+#define CLEARFLAG(mask)	runtime_flags &= ~mask
 
 extern const char *pidfilename;
 
+#define UUIDVALUE_MAX_LEN 42
 extern char uuidvalue[];
 
 #define MODELNAME_MAX_LEN 64
@@ -229,8 +237,8 @@ extern const char *minissdpdsocketpath;
 extern sqlite3 *db;
 #define FRIENDLYNAME_MAX_LEN 64
 extern char friendly_name[];
-extern char db_path[];
-extern char log_path[];
+extern char db_path[1024];
+extern char log_path[1024];
 extern struct media_dir_s *media_dirs;
 extern struct album_art_name_s *album_art_names;
 extern volatile short int quitting;
