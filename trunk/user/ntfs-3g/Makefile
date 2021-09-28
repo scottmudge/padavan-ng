@@ -1,4 +1,4 @@
-SRC_NAME=ntfs-3g_ntfsprogs-2017.3.23
+SRC_NAME=ntfs-3g_ntfsprogs-2021.8.22
 
 CFLAGS += -Os -ffunction-sections -fdata-sections -fvisibility=hidden
 LDFLAGS += -Wl,--gc-sections
