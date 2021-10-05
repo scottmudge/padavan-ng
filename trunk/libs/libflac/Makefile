@@ -1,4 +1,4 @@
-SRC_NAME=flac-1.3.2
+SRC_NAME=flac-1.3.3
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
@@ -12,6 +12,7 @@ config_test:
 
 configure:
 	( cd $(SRC_NAME) ; \
+	./autogen.sh ; \
 	./configure \
 		--prefix=$(STAGEDIR) \
 		$(if $(LIBS_BUILD_SHARED),--disable-static,--enable-static) \
