@@ -1,4 +1,4 @@
-SRC_NAME=libogg-1.3.3
+SRC_NAME=libogg-1.3.5
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
