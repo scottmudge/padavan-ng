@@ -1,4 +1,4 @@
-SRC_NAME=openssl-1.1.1
+SRC_NAME=openssl-1.1.1l
 
 # openssl use CROSS_COMPILE prefix
 CC=gcc $(CPUFLAGS)
@@ -54,6 +54,13 @@ configure:
 	( cd $(SRC_NAME) ; \
 	./Configure \
 		linux-mips32el \
+		shared \
+		--prefix=/ \
+		--openssldir=/etc/ssl \
+		$(COPTS) \
+		$(LOPTS) \
+		$(OPENSSL_OPTIONS) ; \
+	./config \
 		shared \
 		--prefix=/ \
 		--openssldir=/etc/ssl \
