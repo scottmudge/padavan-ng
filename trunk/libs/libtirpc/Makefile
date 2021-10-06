@@ -1,4 +1,4 @@
-SRC_NAME=libtirpc-1.0.X
+SRC_NAME=libtirpc-1.3.2
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
@@ -12,6 +12,11 @@ config_test:
 
 configure:
 	( cd $(SRC_NAME) ; \
+	libtoolize --force ; \
+	aclocal ; \
+	autoheader ; \
+	automake --force-missing --add-missing ; \
+	autoconf ; \
 	./configure \
 		--prefix=$(STAGEDIR) \
 		--enable-shared \
