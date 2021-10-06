@@ -1,4 +1,4 @@
-SRC_NAME=libvorbis-1.3.X
+SRC_NAME=libvorbis-1.3.7
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
