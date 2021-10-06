@@ -1,4 +1,4 @@
-SRC_NAME=libxml2-2.X.X
+SRC_NAME=libxml2-2.9.12
 
 all: config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
