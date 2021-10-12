@@ -146,7 +146,7 @@ endif
 
 romfs.post::
 	[ -d $(IMAGEDIR) ] || mkdir -p $(IMAGEDIR)
-	sudo qemu-mipsel ./ldconfig -r $(ROMFSDIR) -C /etc_ro/ld.so.cache
+	sudo qemu-mipsel ../../../toolchain/out/mipsel-linux-uclibc/sysroot/sbin/ldconfig -r $(ROMFSDIR) -C /etc_ro/ld.so.cache
 	rm -f $(RAMDISK)
 	rm -f $(KERNELZ).lzma
 	$(TOOLS_DIR)/mksquashfs_xz/mksquashfs $(ROMFSDIR) $(RAMDISK) -all-root -no-exports -noappend -nopad -noI -no-xattrs
