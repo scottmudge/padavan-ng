@@ -1040,7 +1040,12 @@ write_inadyn_conf(const char *conf_file, int use_delay)
 				fprintf(fp, "checkip-server = %s\n", inadyn_checkip_url[i_ddns_checkip]);
 			fprintf(fp, "period = %d\n", i_ddns_period);
 			fprintf(fp, "forced-update = %d\n", i_ddns_forced);
+#if defined (SUPPORT_DDNS_CERT)
+			fprintf(fp, "secure-ssl = true\n");
+			fprintf(fp, "ca-trust-file = %s\n", DDNS_CERT_FILE);
+#else
 			fprintf(fp, "secure-ssl = false\n");
+#endif
 			if (strcmp(ddns1_svc, "custom@http_srv_basic_auth") == 0) {
 				fprintf(fp, "custom %s {\n", ddns1_svr);
 			} else {

@@ -84,6 +84,7 @@
 
 #define DDNS_CONF_FILE			"/etc/inadyn.conf"
 #define DDNS_CONF_FILE_MAN		"/etc/inadyn_asusreg.conf"
+#define DDNS_CERT_FILE			"/etc_ro/ca-bundle.crt"
 #define DDNS_DONE_SCRIPT		"/sbin/ddns_updated"
 #define DDNS_CACHE_DIR			"/tmp/inadyn"
 #define DDNS_PID_FILE			"/var/run/inadyn.pid"

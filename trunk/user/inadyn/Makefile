@@ -42,8 +42,13 @@ clean:
 	fi; \
 	rm -f config_done
 	rm -f inadyn
+	rm -f ca-bundle.crt
 
 romfs:
 	cp $(SRC_NAME)/src/inadyn .
 	$(STRIP) inadyn
 	$(ROMFSINST) /bin/inadyn
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_DDNS_CERT),y)
+	wget https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
+	$(ROMFSINST) $(THISDIR)/ca-bundle.crt /etc_ro/ca-bundle.crt
+endif
