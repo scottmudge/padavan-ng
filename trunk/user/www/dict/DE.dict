@@ -1187,7 +1187,7 @@ FW_item4=Hardwareversion:
 FW_item5=Neue Firmware-Datei:
 FW_note=Hinweis:
 FW_n1=Einstellungen von Konfigurationsparametern, die sowohl in der alten als auch in der neuen Firmware vorhanden sind, bleiben bei der Aktualisierung erhalten.
-FW_n2=Falls die Aktualisierung fehlschlagen sollte, wechselt der ZVMODELVZ automatisch in den Notfallmodus. Eine solche Situation wird von den LEDs an der Vorderseite des ZVMODELVZ angezeigt. In diesem Fall können Sie das System mit Hilfe des Firmware-Wiederherstellungsprogramms wieder herstellen.
+FW_n2=Falls die Aktualisierung fehlschlagen sollte, wechselt der ZVMODELVZ automatisch in den Notfallmodus. Eine solche Situation wird von den LEDs an der Vorderseite des ZVMODELVZ angezeigt. In diesem Fall können Sie das System mit Hilfe des <a href="https://www.asus.com/de/support/FAQ/1000814/" target="blank">ASUS Firmware-Wiederherstellungsprogramms</a> wieder herstellen.
 FIRM_ok_title=Firmware erfolgreich aktualisiert.
 FIRM_ok_desc=Firmware wird aktualisiert. Bitte warten Sie etwa 2-3 Minuten.
 FIRM_fail_desc=Firmware-Aktualisierung fehlgeschlagen. Dies kann an einer falschen Image-Datei oder einem Ubertragungsfehler liegen. Bitte überprüfen Sie die Version der Firmware und versuchen Sie es noch einmal. Details befinden sich im System-Log.
