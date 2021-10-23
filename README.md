@@ -1,8 +1,10 @@
+[![Actively Maintained](https://img.shields.io/badge/Maintenance%20Level-Actively%20Maintained-green.svg)](https://gist.github.com/cheerfulstoic/d107229326a01ff0f333a1d3476e068d)
+
 # README #
 
-Welcome to the rt-n56u project (by @Andi Padavan)
+Welcome to the RT-N56U project (by @Andi Padavan)
 
-This project aims to improve the rt-n56u and other supported devices on the software part, allowing power user to take full control over their hardware.
+This project aims to improve the RT-N56U and other supported devices on the software part, allowing power user to take full control over their hardware.
 This project was created in hope to be useful, but comes without warranty or support. Installing it will probably void your warranty.
 Contributors of this project are not responsible for what happens next. Flash at your own risk!
 
@@ -17,7 +19,7 @@ pleased so far with my 'refreshed' version. In one of my last changes i accident
 version of my 'refresh'. No clue how i could miss that the whole time, but i did! Damn!! :-)
 
 Result: Ok so i made a new plan by going back to start and use this better repo from @Linaro1985 as a base for my refresh and instead carry THIS torch a bit further on.
-And here we are now with the result in this repo which contains changes which i (ZaneZam) needed/find useful and which are based on top of the latest commit ([56960f9](https://gitlab.com/padavan-ng/padavan-ng/commit/56960f9cc31cb69e42d06deae4afa4b9b95b0b24)) of the unofficial fork
+And here we are now with the result in this repo which contains changes which i (ZaneZam) needed/find useful and which are based on top of the latest commit ([56960f9](https://gitlab.com/padavan-ng/padavan-ng/-/commit/56960f9cc31cb69e42d06deae4afa4b9b95b0b24)) of the unofficial fork
 from @Linaro1985 (project got 'archived' meanwhile!) ready to get used. It contains mainly changes for the RT-N56U which are for example: updated program/library packages, security fixes,
 minor webui changes, a lean firmware config 'mini', etc. (details in the changelog, see link below) I will try to keep things updated on a regular basis and maybe some
 more improvements will find their way into this fork in the future.
@@ -31,10 +33,10 @@ more improvements will find their way into this fork in the future.
 * Perform factory reset
 * Open web browser on http://my.router to configure the services
 
-### Dokummentation ###
+### Documentation ###
 
 - [Changelog of this Fork](https://github.com/zanezam/padavan-ng/blob/custom/changes.eng.txt)
-- [Unofficial Documentation](https://github.com/zanezam/padavan-ng/blob/custom/doc)
+- [Unofficial Documentation in this Fork](https://github.com/zanezam/padavan-ng/blob/custom/doc)
 - [Official Wiki](https://bitbucket.org/padavan/rt-n56u/wiki/Home)
 
 ### Downloads ###
