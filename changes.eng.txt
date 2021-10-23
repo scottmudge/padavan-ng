@@ -1,3 +1,4 @@
+
     ASUS RT-N11P/N14U/N56U/AC51U/AC54U/AC1200/AC1200HP custom firmware by Padavan
 
 
@@ -36,6 +37,68 @@ After manual NVRAM reset:
 
 
                               LIST OF CHANGES
+
+
+3.4.4.1z-001 (changes by ZaneZam):
+----------------------------------------------------------
+[RT-N56U]
+- Project config: brought back project config 'nano' for the RT-N56U device
+- Project config: disabled uneeded EXT4/EXT3/EXT2 filesystem support and HDPARM in 'mini' build
+- Project config: disabled 'tcpdump' tool in transmission builds to fix size of RT-N56U firmware image
+- Project config: moved 'tcpdump' tool from 'base' to 'mini' config because of RT-N56U firmware image size reasons
+- Project config: disabled printer features and SMB server in 'dlna' build to fix size of RT-N56U firmware image
+- Project config: disabled vsftp in 'aria' build to fix size of RT-N56U firmware image
+[Common changes]
+- Documentation updated and corrected + added maintenance level info
+- Linux kernel: fixed CVE-2021-22555, CVE-2017-7482, CVE-2018-6555, CVE-2018-10675, CVE-2019-15916, CVE-2020-14305, CVE-2020-14386, CVE-2020-15436
+- Romfs: fixed creation of library cache
+- Inadyn: fixed 'SSL Error: unable to get local issuer certificate'
+- WebUI: fixed saving of the sshd LAN port setting + improved sshd service handling and firewall settings
+- WebUI: corrected/changed some german translations
+- WebUI: add link to ASUS Restoration Tool in firmware flash notes
+- Updated busybox to v1.32.1 stable
+- Updated uclibc to v1.0.38
+- Updated nfs-utils to v2.5.2
+- Updated libcurl to v7.77.0
+- Updated libsqlite to v3.36.0
+- Updated xl2tpd to v1.3.16
+- Updated util-linux to v2.35
+- Updated libpcap to v1.10.1
+- Updated strongswan to v5.9.3
+- Updated radvd to v2.19
+- Updated openssh to v8.7p1
+- Updated mtd-utils to v2.1.2
+- Updated iptables to v1.8.7
+- Updated inadyn to v2.8.1 
+- Updated dropbear to v2020.81
+- Updated e2fsprogs to v1.46.4
+- Updated igmpproxy to v0.3
+- Updated aria2 to v1.36.0
+- Updated dnsmasq to v2.86
+- Updated minidlna to v1.3.0
+- Updated ntfs-3g to v2021.8.22
+- Updated openvpn to v2.5.3
+- Updated dosfstools to v4.2
+- Updated hdparm to v9.62
+- Updated udpxy to v1.0 build 24
+- Updated usb-modeswitch to v2.6.0
+- Updated vsftpd to v3.0.5
+- Updated wpa_supplicant to v2.9
+- Updated libevent to v2.1.12
+- Updated libexif to v0.6.23
+- Updated libflac to v1.3.2
+- Updated libjpeg to v9d
+- Updated libogg to v1.3.5
+- Updated libpcre to v8.45
+- Updated libsodium v1.0.18
+- Updated libssl to v1.1.1l
+- Updated libtirpc to v1.3.2
+- Updated libusb to v1.0.24
+- Updated libvorbis to v1.3.7
+- Updated libxml2 to v2.9.12
+- Updated tcpdump to v4.99.1
+- Updated transmission to v3.00
+- Updated libconfuse to v3.3
 
 
 3.4.4.0z-001 (changes by ZaneZam):

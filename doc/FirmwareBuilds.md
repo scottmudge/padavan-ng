@@ -1,6 +1,6 @@
 # What is difference between the versions (full, base, etc.) of Firmware for routers Asus RT-N56U? #
 
-## Firmware builds for router ASUS RT-N56U ##
+## Firmware builds for router ASUS RT-N56U
 
 In this section we will describe the differences between the various Firmware builds for router ASUS RT-N56U.
 
@@ -9,9 +9,10 @@ In this section we will describe the differences between the various Firmware bu
 **On this page:**
 
 * [Firmware builds for router ASUS RT-N56U](#markdown-header-firmware-builds-for-router-asus-rt-n56u)
-    * [RT-N56U_XXX_aria](#markdown-header-rt-n56u_xxx_aria)
 
     * [RT-N56U_XXX_base](#markdown-header-rt-n56u_xxx_base)
+
+    * [RT-N56U_XXX_aria](#markdown-header-rt-n56u_xxx_aria)
 
     * [RT-N56U_XXX_dlna](#markdown-header-rt-n56u_xxx_dlna)
 
@@ -23,53 +24,7 @@ In this section we will describe the differences between the various Firmware bu
 
 - - -
 
-### RT-N56U_XXX_aria ###
-
-** Aria2 build (modified by ZaneZam because of image size issues)**
-
-  *mandatory:*
-
-  * [х] Linux kernel-3.4+ (with upstream backports).
-  * [х] IPv6 full support (native and SIT tunnels).
-  * [х] NTFS filesystem (Paragon ufsd 8.6 for ASUS).
-  * [х] FAT16/FAT32/exFAT filesystem (FAT16/FAT32 via exFAT driver).
-  * [х] EXT4/EXT3/EXT2 filesystem (EXT3/EXT2 via EXT4 driver).
-  * [х] FUSE kernel modules.
-  * [х] NFS kernel modules (NFSv2/3 client/server).
-  * [х] IPSET kernel modules.
-  * [х] dropbear (SSH client/server).
-  * [х] sftp (SSH FTP server).
-  * [x] vsftpd (FTP server).
-  * [х] xupnpd (multicast IPTV->UPnP proxy).
-  * [х] openvpn (security VPN client/server).
-  * [х] https server for WebUI.
-
-  *included:*
-
-  * [+] aria2 (multi-protocol download manager).
-  * [+] openssl binary (allow generate certificates for openvpn/https).
-
-  *excluded:*
-
-  * [-] minidlna (UPnP/DLNA A/V mediaserver).
-  * [-] firefly (iTunes audio mediaserver).
-  * [-] transmission (torrent client).
-  * [-] UVC camera kernel modules.
-  * [-] QoS kernel modules.
-  * [-] IFB/IMQ kernel modules.
-  * [-] USB HID kernel modules.
-  * [-] XFS filesystem.
-  * [-] CIFS client kernel modules.
-  * [-] openssh (BSD SSH client/server).
-  * [-] LPR printing daemon.
-  * [-] USB-over-Ethernet printing daemon.
-  * [-] samba (SMB server).
-  * [-] tcpdump utility.
-  * [-] parted utility.
-  * [-] Stripped debug messages from Samba server.
-
-
-### RT-N56U_XXX_base ###
+### RT-N56U_XXX_base
 
 **Base build**
 
@@ -97,7 +52,6 @@ In this section we will describe the differences between the various Firmware bu
   *included:*
 
   * [+] openssl binary (allow generate certificates for openvpn/https).
-  * [+] tcpdump utility.
 
   *excluded:*
 
@@ -112,10 +66,55 @@ In this section we will describe the differences between the various Firmware bu
   * [-] CIFS client kernel modules.
   * [-] openssh (BSD SSH client/server).
   * [-] parted utility.
+  * [-] tcpdump utility.
   * [-] Stripped debug messages from Samba server.
 
+### RT-N56U_XXX_aria
 
-### RT-N56U_XXX_dlna ###
+** Aria2 build (modified by ZaneZam because of image size issues)**
+
+  *mandatory:*
+
+  * [х] Linux kernel-3.4+ (with upstream backports).
+  * [х] IPv6 full support (native and SIT tunnels).
+  * [х] NTFS filesystem (Paragon ufsd 8.6 for ASUS).
+  * [х] FAT16/FAT32/exFAT filesystem (FAT16/FAT32 via exFAT driver).
+  * [х] EXT4/EXT3/EXT2 filesystem (EXT3/EXT2 via EXT4 driver).
+  * [х] FUSE kernel modules.
+  * [х] NFS kernel modules (NFSv2/3 client/server).
+  * [х] IPSET kernel modules.
+  * [х] dropbear (SSH client/server).
+  * [х] sftp (SSH FTP server).
+  * [х] xupnpd (multicast IPTV->UPnP proxy).
+  * [х] openvpn (security VPN client/server).
+  * [х] https server for WebUI.
+
+  *included:*
+
+  * [+] aria2 (multi-protocol download manager).
+  * [+] openssl binary (allow generate certificates for openvpn/https).
+
+  *excluded:*
+
+  * [-] minidlna (UPnP/DLNA A/V mediaserver).
+  * [-] firefly (iTunes audio mediaserver).
+  * [-] transmission (torrent client).
+  * [-] UVC camera kernel modules.
+  * [-] QoS kernel modules.
+  * [-] IFB/IMQ kernel modules.
+  * [-] USB HID kernel modules.
+  * [-] XFS filesystem.
+  * [-] CIFS client kernel modules.
+  * [-] openssh (BSD SSH client/server).
+  * [-] LPR printing daemon.
+  * [-] USB-over-Ethernet printing daemon.
+  * [-] samba (SMB server).
+  * [-] vsftpd (FTP server).
+  * [-] tcpdump utility.
+  * [-] parted utility.
+  * [-] Stripped debug messages from Samba server.
+
+### RT-N56U_XXX_dlna
 
 **DLNA build (modified by ZaneZam because of image size issues)**
 
@@ -127,15 +126,11 @@ In this section we will describe the differences between the various Firmware bu
   * [х] FAT16/FAT32/exFAT filesystem (FAT16/FAT32 via exFAT driver).
   * [х] EXT4/EXT3/EXT2 filesystem (EXT3/EXT2 via EXT4 driver).
   * [х] FUSE kernel modules.
-  * [х] UVC camera kernel modules.
   * [х] NFS kernel modules (NFSv2/3 client/server).
   * [х] IPSET kernel modules.
-  * [х] LPR printing daemon.
-  * [х] USB-over-Ethernet printing daemon.
   * [х] dropbear (SSH client/server).
   * [х] sftp (SSH FTP server).
   * [х] vsftpd (FTP server).
-  * [х] samba (SMB server).
   * [х] xupnpd (multicast IPTV->UPnP proxy).
   * [х] openvpn (security VPN client/server).
   * [х] https server for WebUI.
@@ -143,6 +138,7 @@ In this section we will describe the differences between the various Firmware bu
   *included:*
 
   * [+] minidlna (UPnP/DLNA A/V mediaserver).
+  * [+] openssl binary (allow generate certificates for openvpn/https).
 
   *excluded:*
 
@@ -150,19 +146,21 @@ In this section we will describe the differences between the various Firmware bu
   * [-] aria2 (multi-protocol download manager).
   * [-] transmission (torrent client).
   * [-] transmission web control (advanced WebUI for transmission).
+  * [-] UVC camera kernel modules.
   * [-] QoS kernel modules.
   * [-] IFB/IMQ kernel modules.
   * [-] USB HID kernel modules.
   * [-] XFS filesystem.
   * [-] CIFS client kernel modules.
+  * [-] samba (SMB server).
   * [-] openssh (BSD SSH client/server).
-  * [-] openssl binary (allow generate certificates for openvpn/https).
   * [-] tcpdump utility.
   * [-] parted utility.
   * [-] Stripped debug messages from Samba server.
+  * [-] LPR printing daemon.
+  * [-] USB-over-Ethernet printing daemon.
 
-
-### RT-N56U_XXX_trmd ###
+### RT-N56U_XXX_trmd
 
 **Transmission build (modified by ZaneZam because of image size issues)**
 
@@ -188,7 +186,6 @@ In this section we will describe the differences between the various Firmware bu
   * [+] transmission (torrent client).
   * [+] transmission web control (advanced WebUI for transmission).
   * [+] openssl binary (allow generate certificates for openvpn/https).
-  * [+] tcpdump utility.
   * [+] parted utility.
 
   *excluded:*
@@ -207,9 +204,9 @@ In this section we will describe the differences between the various Firmware bu
   * [-] samba (SMB server).
   * [-] openssh (BSD SSH client/server).
   * [-] Stripped debug messages from Samba server.
+  * [-] tcpdump utility.
 
-
-### RT-N56U_XXX_mini ###
+### RT-N56U_XXX_mini
 
 **Mini build (added by ZaneZam and the default in this fork)**
 
@@ -217,23 +214,26 @@ In this section we will describe the differences between the various Firmware bu
 
   * [х] Linux kernel-3.4+ (with upstream backports).
   * [х] IPv6 full support (native and SIT tunnels).
-  * [х] NTFS filesystem (Paragon ufsd 8.6 for ASUS).
-  * [х] EXT4/EXT3/EXT2 filesystem (EXT3/EXT2 via EXT4 driver).
-  * [х] UVC camera kernel modules.
-  * [х] NFS kernel modules (NFSv2/3 client/server).
   * [х] IPSET kernel modules.
   * [х] dropbear (SSH client/server).
   * [х] openvpn (security VPN client/server).
   * [х] https server for WebUI.
 
+  *included*
+  * [+] tcpdump utility.
+
   *excluded:*
 
   * [-] NTFS filesystem (Paragon ufsd 8.6 for ASUS).
   * [-] FAT16/FAT32/exFAT filesystem (FAT16/FAT32 via exFAT driver).
+  * [-] XFS filesystem.
   * [-] FUSE kernel modules.
   * [-] UVC camera kernel modules.
+  * [-] QoS kernel modules.
   * [-] NFS kernel modules (NFSv2/3 client/server).
   * [-] LPR printing daemon.
+  * [-] IFB/IMQ kernel modules.
+  * [-] USB HID kernel modules.
   * [-] USB Support.
   * [-] USB-over-Ethernet printing daemon.
   * [-] sftp (SSH FTP server).
@@ -242,11 +242,11 @@ In this section we will describe the differences between the various Firmware bu
   * [-] xupnpd (multicast IPTV->UPnP proxy).
   * [-] minidlna (UPnP/DLNA A/V mediaserver).
   * [-] transmission (torrent client).
+  * [-] parted utility.
 
+### RT-N56U_XXX_nano
 
-### RT-N56U_XXX_nano ###
-
-**Nano build**
+**Nano build** (added back again by ZaneZam)**
 
   *mandatory:*
 
@@ -287,4 +287,4 @@ In this section we will describe the differences between the various Firmware bu
   * [-] Stripped debug messages from Samba server.
 ----
 
-### Main focus (and therefore it's config templates provided in this repo) is ONLY on the Asus RT-N56U router. However original firmware also includes templates testet for supported routers Asus RT-N65U/RT-N14U/RT-N11P. There are also several Firmware builds (base, full, etc.) which are not adressed here. The description of them [can be found here](https://bitbucket.org/padavan/rt-n56u/wiki/EN/FirmwareBuilds) ###
+### Main focus (and therefore it's config templates provided in this repo) is ONLY on the Asus RT-N56U router. However original firmware also includes templates testet for supported routers Asus RT-N65U/RT-N14U/RT-N11P. There are also several Firmware builds (base, full, etc.) which are not adressed here. The description of them [can be found here](https://bitbucket.org/padavan/rt-n56u/wiki/EN/FirmwareBuilds)
