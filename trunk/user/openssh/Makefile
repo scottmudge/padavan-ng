@@ -18,6 +18,7 @@ config_test:
 configure:
 	( cd $(SRC_NAME) ; \
 	LD="$(CC)" \
+	autoreconf ; \
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc/storage/openssh \

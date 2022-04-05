@@ -328,89 +328,90 @@ if [ "$CONFIG_FIRMWARE_ENABLE_USB" != "y" ] || [ -z "$CONFIG_USB_SUPPORT" ] ; th
 	fi
 	CONFIG_FIRMWARE_INCLUDE_NFSD=n
 else
-############################# UFSD ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_UFSD" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_UFSD_FS"
-fi
-if [ "$CONFIG_FIRMWARE_ENABLE_UFSD" != "y" ] || [ $paragon_hfsplus -eq 0 ] ; then
-	func_disable_kernel_param "CONFIG_MAC_PARTITION"
-	func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
-fi
-############################# HFS #####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_HFS" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_MAC_PARTITION"
-	func_disable_kernel_param "CONFIG_HFSPLUS_FS"
-	func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
-else
-	func_enable_kernel_param "CONFIG_MAC_PARTITION"
-	func_enable_kernel_param_as_m "CONFIG_HFSPLUS_FS"
-	func_enable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
-fi
-############################# FAT #####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_FAT" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_FAT_FS"
-	func_disable_kernel_param "CONFIG_MSDOS_FS"
-	func_disable_kernel_param "CONFIG_VFAT_FS"
-fi
-############################ exFAT ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_EXFAT" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_EXFAT_FS"
-	func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_EXFAT"
-fi
-############################# EXT2 ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_EXT2" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_EXT2_FS"
-fi
-############################# EXT3 ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_EXT3" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_EXT3_FS"
-fi
-############################# EXT4 ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_EXT4" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_EXT4_FS"
-fi
-############################# XFS #####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_XFS" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_XFS_FS"
-	func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_XFS"
-fi
-############################# FUSE ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_FUSE" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_FUSE_FS"
-fi
-############################# SWAP ####################################
-if [ "$CONFIG_FIRMWARE_ENABLE_SWAP" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_SWAP"
-	func_disable_busybox_param "CONFIG_MKSWAP"
-	func_disable_busybox_param "CONFIG_SWAPON"
-	func_disable_busybox_param "CONFIG_SWAPOFF"
-fi
-############################# NFSD ####################################
-if [ "$CONFIG_FIRMWARE_INCLUDE_NFSD" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_NFSD"
-fi
-############################# UVC #####################################
-if [ "$CONFIG_FIRMWARE_INCLUDE_UVC" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_MEDIA_SUPPORT"
-fi
-############################# HID #####################################
-if [ "$CONFIG_FIRMWARE_INCLUDE_HID" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_INPUT"
-	func_disable_kernel_param "CONFIG_HID_SUPPORT"
-	func_disable_kernel_param "CONFIG_USB_HID"
-fi
-############################# UART ####################################
-if [ "$CONFIG_FIRMWARE_INCLUDE_SERIAL" != "y" ] ; then
-	func_disable_kernel_param "CONFIG_USB_SERIAL_CH341"
-	func_disable_kernel_param "CONFIG_USB_SERIAL_PL2303"
-fi
+	############################# UFSD ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_UFSD" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_UFSD_FS"
+	fi
+	if [ "$CONFIG_FIRMWARE_ENABLE_UFSD" != "y" ] || [ $paragon_hfsplus -eq 0 ] ; then
+		func_disable_kernel_param "CONFIG_MAC_PARTITION"
+		func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
+	fi
+	############################# HFS #####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_HFS" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_MAC_PARTITION"
+		func_disable_kernel_param "CONFIG_HFSPLUS_FS"
+		func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
+	else
+		func_enable_kernel_param "CONFIG_MAC_PARTITION"
+		func_enable_kernel_param_as_m "CONFIG_HFSPLUS_FS"
+		func_enable_busybox_param "CONFIG_FEATURE_VOLUMEID_HFS"
+	fi
+	############################# FAT #####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_FAT" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_FAT_FS"
+		func_disable_kernel_param "CONFIG_MSDOS_FS"
+		func_disable_kernel_param "CONFIG_VFAT_FS"
+	fi
+	############################ exFAT ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_EXFAT" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_EXFAT_FS"
+		func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_EXFAT"
+	fi
+	############################# EXT2 ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_EXT2" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_EXT2_FS"
+	fi
+	############################# EXT3 ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_EXT3" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_EXT3_FS"
+	fi
+	############################# EXT4 ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_EXT4" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_EXT4_FS"
+	fi
+	############################# XFS #####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_XFS" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_XFS_FS"
+		func_disable_busybox_param "CONFIG_FEATURE_VOLUMEID_XFS"
+	fi
+	############################# FUSE ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_FUSE" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_FUSE_FS"
+	fi
+	############################# SWAP ####################################
+	if [ "$CONFIG_FIRMWARE_ENABLE_SWAP" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_SWAP"
+		func_disable_busybox_param "CONFIG_MKSWAP"
+		func_disable_busybox_param "CONFIG_SWAPON"
+		func_disable_busybox_param "CONFIG_SWAPOFF"
+	fi
+	############################# NFSD ####################################
+	if [ "$CONFIG_FIRMWARE_INCLUDE_NFSD" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_NFSD"
+	fi
+	############################# UVC #####################################
+	if [ "$CONFIG_FIRMWARE_INCLUDE_UVC" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_MEDIA_SUPPORT"
+	fi
+	############################# HID #####################################
+	if [ "$CONFIG_FIRMWARE_INCLUDE_HID" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_INPUT"
+		func_disable_kernel_param "CONFIG_HID_SUPPORT"
+		func_disable_kernel_param "CONFIG_USB_HID"
+	fi
+	############################# UART ####################################
+	if [ "$CONFIG_FIRMWARE_INCLUDE_SERIAL" != "y" ] ; then
+		func_disable_kernel_param "CONFIG_USB_SERIAL_CH341"
+		func_disable_kernel_param "CONFIG_USB_SERIAL_PL2303"
+	fi
 fi
 ############################# XFRM ####################################
 if [ "$CONFIG_FIRMWARE_INCLUDE_SSWAN" = "y" ] ; then
-	CONFIG_FIRMWARE_INCLUDE_XFRM=y
+	export CONFIG_FIRMWARE_INCLUDE_XFRM=y
+else
+	unset CONFIG_FIRMWARE_INCLUDE_XFRM
 fi
-if [ "$CONFIG_PRODUCT" = "MT7621" ] ; then
-if [ "$CONFIG_FIRMWARE_INCLUDE_XFRM" != "y" ] ; then
+if [ "$CONFIG_PRODUCT" = "MT7621" -a "$CONFIG_FIRMWARE_INCLUDE_XFRM" != "y" ] ; then
 	func_disable_kernel_param "CONFIG_XFRM"
 	func_disable_kernel_param "CONFIG_XFRM_USER"
 	func_disable_kernel_param "CONFIG_XFRM_IPCOMP"
@@ -444,7 +445,6 @@ if [ "$CONFIG_FIRMWARE_INCLUDE_XFRM" != "y" ] ; then
 	func_disable_kernel_param "CONFIG_CRYPTO_AES"
 	func_disable_kernel_param "CONFIG_CRYPTO_DES"
 	func_disable_kernel_param "CONFIG_CRYPTO_DEFLATE"
-fi
 fi
 ############################ IPSET ####################################
 if [ "$CONFIG_FIRMWARE_INCLUDE_IPSET" != "y" ] ; then
@@ -490,9 +490,12 @@ if [ "$CONFIG_FIRMWARE_INCLUDE_NFSD" != "y" -a "$CONFIG_FIRMWARE_INCLUDE_NFSC" !
 	fi
 fi
 ############################# USB AUDIO ###############################
-if [ "$CONFIG_FIRMWARE_INCLUDE_AUDIO" != "y" ] || [ "$CONFIG_FIRMWARE_ENABLE_USB" != "y" ] || [ -z "$CONFIG_USB_SUPPORT" ] ; then
-	func_disable_kernel_param "CONFIG_FW_LOADER"
+if [ "$CONFIG_FIRMWARE_INCLUDE_AUDIO" != "y" ] || [ -z "$CONFIG_USB_SUPPORT" ] ; then
 	func_disable_kernel_param "CONFIG_SOUND"
+fi
+############################# FW LOADER ###############################
+if [ "$CONFIG_FIRMWARE_ENABLE_USB" != "y" ] || [ -z "$CONFIG_USB_SUPPORT" ] ; then
+	func_disable_kernel_param "CONFIG_FW_LOADER"
 fi
 ############################# ZRAM SUPPORT ############################
 if [ "$CONFIG_FIRMWARE_INCLUDE_ZRAM" = "y" ] ; then
@@ -521,7 +524,7 @@ echo --------------------------MAKE-ALL--------------------------------
 make
 if [ -d images ]; then
     cd images
-    for file in *.trx; do md5sum "$file" > "${file//.trx}".md5; done
+    for file in *.trx; do md5sum "$file" > "${file%trx}md5"; done
     cd ..
 fi
 endtime

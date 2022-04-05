@@ -18,6 +18,7 @@ RUN apt-get install -yq \
   unzip curl wget cmake gperf gawk flex bison nano help2man libtool-bin \
   git python-docutils gettext automake autopoint texinfo build-essential \
   pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev && \
+  qemu-user \
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \
